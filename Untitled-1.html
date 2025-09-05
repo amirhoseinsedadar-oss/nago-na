@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>قبول می‌کنی دوست‌م باشی؟ 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body {
   margin: 0;
@@ -55,6 +56,9 @@ p { color: #6b7280; margin: 0 0 12px; font-size: clamp(12px, 4vw, 14px); }
   100% { transform: translate(-60px, -5px) rotate(-3deg); }
 }
 
+/* چک‌باکس پنهان برای فعال کردن مود تبریک */
+#show-success { display: none; }
+
 .success {
   position: fixed; inset: 0;
   display: grid; place-items: center;
@@ -62,6 +66,11 @@ p { color: #6b7280; margin: 0 0 12px; font-size: clamp(12px, 4vw, 14px); }
   opacity: 0;
   pointer-events: none;
   transition: opacity .2s ease;
+}
+
+#show-success:checked ~ .success {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .success > div {
@@ -75,9 +84,7 @@ p { color: #6b7280; margin: 0 0 12px; font-size: clamp(12px, 4vw, 14px); }
 
 .success h2 { margin: 0 0 6px; font-size: clamp(18px, 5vw, 24px); color: #34d399; }
 .success p { margin: 0 0 10px; color: #6b7280; font-size: clamp(11px, 4vw, 14px); }
-.success a { text-decoration: none; padding: 8px 16px; background: #ec4899; color: #fff; border-radius: 999px; font-weight: bold; display: inline-block; }
-
-#yay:target { opacity: 1; pointer-events: auto; }
+.success label { text-decoration: none; padding: 8px 16px; background: #ec4899; color: #fff; border-radius: 999px; font-weight: bold; display: inline-block; cursor: pointer; }
 
 @media (max-width: 520px) {
   .card { padding: 16px; width: 90vw; }
@@ -89,25 +96,28 @@ p { color: #6b7280; margin: 0 0 12px; font-size: clamp(12px, 4vw, 14px); }
 </style>
 </head>
 <body>
-<main class="card">
-  <h1>خانومم میشی؟ 🥺💕</h1>
-  <p>قول می‌دم هم شنونده‌ی خوب باشم هم رفیق خفن! 😇</p>
-  <div class="btns">
-    <a class="btn btn-yes" href="#yay">بله 😍</a>
-    <div class="no-wrap">
-      <button class="btn btn-no">نه 🙈</button>
+  <!-- چک‌باکس پنهان -->
+  <input type="checkbox" id="show-success">
+
+  <main class="card">
+    <h1>میای دوست‌م باشی؟ 🥺💕</h1>
+    <p>قول می‌دم هم شنونده‌ی خوب باشم هم رفیق خفن! 😇</p>
+    <div class="btns">
+      <!-- با کلیک روی لِیبل چک‌باکس فعال می‌شود -->
+      <label for="show-success" class="btn btn-yes">بله 😍</label>
+      <div class="no-wrap">
+        <button class="btn btn-no">نه 🙈</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="success">
+    <div>
+      <h2>هورا! 🥳</h2>
+      <p>از همین لحظه رسماً دوستیمون شروع شد! یه پیام بده که برنامه بچینیم ☕️✨</p>
+      <!-- با کلیک روی لِیبل، مود بسته می‌شود -->
+      <label for="show-success">باشه 😄</label>
     </div>
   </div>
-</main>
-
-<div class="success" id="yay">
-  <div>
-    <h2>هورا! 🥳</h2>
-    <p>از همین لحظه رسماً رابطمون شروع شد! یه پیام بده بهم ☕️✨</p>
-    <a class="btn btn-yes" href="#">باشه 😄</a>
-  </div>
-</div>
-
-
 </body>
 </html>
